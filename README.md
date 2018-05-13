@@ -12,7 +12,7 @@ querying the server at /transactions will return a list of transactions that hav
 * Clone this repo:
   `git clone https://github.com/geetaristo/simpleRestToPostgres.git`
 * run npm install
-  ` npm start `
+  ` npm install `
 * fire this server up
   ` npm start `
 
