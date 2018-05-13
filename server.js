@@ -27,7 +27,7 @@ app.get('/', (req, res) => res.send('welcome to the root of this server.') )
 app.post('/record', async (req, res) => {
   const { body } = req
   try {
-    const result = await writeToDb(body.record)
+    const result = await writeToDb(body)
     res.send({success: true})
   } catch ({message}) { res.status(500).send({success: false, message }) }
 })
