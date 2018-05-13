@@ -1,13 +1,12 @@
 const express = require('express')
 const app = express()
 const http = require('http').Server(app)
+
 const port = process.env.PORT || 8081
-
-const writeToDb = record => knex('transactions').insert(record)
-
 const connection = process.env.DATABASE_URL || 'postgresql://[::1]:5432/public'
 
 const knex = require('knex')({ client: 'pg', connection })
+const writeToDb = record => knex('transactions').insert(record)
 
 knex.schema.hasTable('transactions').then(function(exists) {
   if (!exists) {
@@ -37,4 +36,3 @@ app.get('/records', async (req, res) =>  {
 })
 
 http.listen(port, () => console.log('listening on *:' + port) )
-
